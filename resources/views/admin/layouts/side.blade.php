@@ -77,7 +77,9 @@
                     </div>
 
                     <a href="{{ route( 'admin.product.index' ) }}" class="nav-item nav-link nav-link dropdown-toggle {{ Request::is('admin/products') || Request::is('admin/products/*') ? 'active' : '' }}"><i class="fab fa-product-hunt me-2"></i>Products</a>
+                    <a href="{{ route( 'admin.colors.index' ) }}" class="nav-item nav-link nav-link dropdown-toggle {{ Request::is('admin/colors') || Request::is('admin/colors/*') ? 'active' : '' }}"><i class="fas fa-palette me-2"></i>Colors</a>
                     <a href="{{ route( 'admin.users.index' ) }}" class="nav-item nav-link nav-link dropdown-toggle {{ Request::is('admin/users') || Request::is('admin/users/*') ? 'active' : '' }}"><i class="fas fa-users me-2"></i>Users</a>
+                    <a href="/" class="nav-item nav-link nav-link dropdown-toggle"><i class="fas fa-globe me-2"></i>Website</a>
 
 
 
@@ -115,6 +117,7 @@
     <script src="{{ asset('admin/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 
     <!-- Template Javascript -->
+    <script src="{{ asset('admin/js/custom.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="{{ asset('admin/js/main.js') }}"></script>
 </body>

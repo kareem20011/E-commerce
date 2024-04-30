@@ -4,7 +4,7 @@
 
 <div class="container-fluid pt-4 px-4">
     <div class="bg-secondary rounded p-4">
-        <h6 class="mb-4">Edit Main Categories</h6>
+        <h6 class="mb-4">Edit Main Category</h6>
         <form method="post" action="{{ route('mainCategories.update', $mainCat->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PATCH')

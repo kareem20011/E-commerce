@@ -17,28 +17,40 @@
                     <ul class="ht-menu">
                         <!-- Begin Setting Area -->
                         <li>
+                            @if(auth('admin')->check())
+                            <div class="mx-4"><a class="text-light" href="{{ route('admin.dashboard') }}">Dashboard</a></div>
+                            @endif
                             <div class="ht-setting-trigger"><span>Setting</span></div>
                             <div class="setting ht-setting">
                                 <ul class="ht-setting-list">
+                                    @if(auth()->check())
                                     <li><a href="login-register.html">My Account</a></li>
                                     <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="login-register.html">Sign In</a></li>
+                                    <li>
+                                        <form action="{{ route('logout') }}" method="post">
+                                            @csrf
+                                            <button type="submit">Sign Out</button>
+                                        </form>
+                                    </li>
+                                    @elseif(auth('admin')->check())
+                                    <li>{{ auth('admin')->user()->name }}</li>
+                                    <li><a href="login-register.html">My Account</a></li>
+                                    <li><a href="checkout.html">Checkout</a></li>
+                                    <li>
+                                        <form action="{{ route('admin.logout') }}" method="post">
+                                            @csrf
+                                            <button type="submit">Sign Out</button>
+                                        </form>
+                                    </li>
+                                    @else
+                                    <li><a href="{{ route( 'login' ) }}">Sign In</a></li>
+                                    <li><a href="{{ route( 'register' ) }}">Sign Up</a></li>
+                                    
+                                    @endif
                                 </ul>
                             </div>
                         </li>
                         <!-- Setting Area End Here -->
-                        <!-- Begin Currency Area -->
-                        <li>
-                            <span class="currency-selector-wrapper">Currency :</span>
-                            <div class="ht-currency-trigger"><span>USD $</span></div>
-                            <div class="currency ht-currency">
-                                <ul class="ht-setting-list">
-                                    <li><a href="#">EUR €</a></li>
-                                    <li class="active"><a href="#">USD $</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <!-- Currency Area End Here -->
                         <!-- Begin Language Area -->
                         <li>
                             <span class="language-selector-wrapper">Language :</span>

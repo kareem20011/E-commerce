@@ -6,7 +6,7 @@
 @endif
 
 <!-- Sale & Revenue Start -->
-<div class="container-fluid pt-4 px-4">
+<div class="container-fluid py-4 px-4">
     <div class="row g-4">
         <div class="col-sm-6 col-xl-3">
             <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
@@ -50,7 +50,7 @@
 
 
 <!-- Sales Chart Start -->
-<div class="container-fluid pt-4 px-4">
+<div class="container-fluid py-4 px-4">
     <div class="row g-4">
         <div class="col-sm-12 col-xl-6">
             <div class="bg-secondary text-center rounded p-4">
@@ -76,7 +76,7 @@
 
 
 <!-- Recent Sales Start -->
-<div class="container-fluid pt-4 px-4">
+<div class="container-fluid py-4 px-4">
     <div class="bg-secondary text-center rounded p-4">
         <div class="d-flex align-items-center justify-content-between mb-4">
             <h6 class="mb-0">Recent Salse</h6>
@@ -150,7 +150,7 @@
 
 
 <!-- Widgets Start -->
-<div class="container-fluid pt-4 px-4">
+<div class="container-fluid py-4 px-4">
     <div class="row g-4">
         <div class="col-sm-12 col-md-6 col-xl-4">
             <div class="h-100 bg-secondary rounded p-4">

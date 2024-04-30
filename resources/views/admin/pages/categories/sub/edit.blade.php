@@ -4,7 +4,7 @@
 
 <div class="container-fluid pt-4 px-4">
     <div class="bg-secondary rounded p-4">
-        <h6 class="mb-4">Edit Sub Categories</h6>
+        <h6 class="mb-4">Edit Sub Category</h6>
         <form method="post" action="{{ route('subCategories.update', $subCat->id) }}" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
@@ -28,8 +28,9 @@
                 @foreach($mainCats as $mainCat)
                 @if($mainCat->id === $subCat->mainCategory->id )
                     <option value="{{ $mainCat->id }}" selected>{{ $mainCat->title }}</option>
-                @endif
+                @else
                 <option value="{{ $mainCat->id }}">{{ $mainCat->title }}</option>
+                @endif
                 @endforeach
             </select>
             @error('main_category_id')

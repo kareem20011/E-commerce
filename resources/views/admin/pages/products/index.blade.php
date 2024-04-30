@@ -51,9 +51,9 @@
                 @enderror
             </div>
 
-            <h6 class="mb-4">Select</h6>
+            <h6 class="mt-4">Select category</h6>
             <select name="sub_category_id" class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
-                <option disabled selected>Open this select menu</option>
+                <option disabled selected>Open this select category</option>
                 @foreach($subCats as $subCat)
 
                 <option value="{{ $subCat->id }}">{{ $subCat->title }}</option>
@@ -61,6 +61,17 @@
                 @endforeach
             </select>
             @error('sub_category_id')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+
+            <h6 class="mt-4">Select color</h6>
+            <select name="color_id[]" class="form-select" multiple aria-label="multiple select example">
+                @foreach($colors as $color)
+                <option value="{{ $color->id }}">{{ $color->title }}</option>
+
+                @endforeach
+            </select>
+            @error('color')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
 
@@ -92,7 +103,7 @@
 
 <div class="col-12 container pt-5 mb-5">
     <div class="bg-secondary rounded h-100 p-4">
-        <h6 class="mb-4">Product Data</h6>
+        <h6 class="mb-4">Products Data</h6>
         <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -100,6 +111,7 @@
                         <th scope="col">title</th>
                         <th scope="col">image</th>
                         <th scope="col">description</th>
+                        <th scope="col">colors</th>
                         <th scope="col">price</th>
                         <th scope="col">sub category</th>
                         <th scope="col">quantity</th>
@@ -120,6 +132,13 @@
                             @endif
                         </td>
                         <td>{{ $product->description }}</td>
+                        <td>
+                            <ul style="padding: 0; margin: 0; list-style: none;">
+                            @foreach($product->colors as $color)
+                                <li>{{ $color->title }}</li>
+                            @endforeach
+                            </ul>
+                        </td>
                         <td>$ {{ $product->price }}</td>
                         <td>{{ $product->subCategory->title }}</td>
                         <td>{{ $product->quantity }}</td>

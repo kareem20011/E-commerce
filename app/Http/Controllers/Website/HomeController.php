@@ -12,7 +12,7 @@ class HomeController extends Controller
 {
     public function index(){
         $latestProducts = Product::with('subCategory')->latest()->take(10)->get();
-        $subCats =SubCategory::with('products')->latest()->take(5)->get();
+        $subCats =SubCategory::with('products')->get();
         $mainCats = MainCategory::with('SubCategory')->get();
         // return $mainCats;
         return view('website.pages.home', compact('latestProducts', 'subCats', 'mainCats'));

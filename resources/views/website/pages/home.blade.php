@@ -7,66 +7,36 @@
             <div class="container">
                 <div class="row">
                     <!-- Begin Slider Area -->
-                    <div class="col-lg-8 col-md-8">
+                    <div class="col-lg-8 col-12 m-auto">
+                        <h1 class="text-center">Categories</h1>
                         <div class="slider-area pt-sm-30 pt-xs-30">
                             <div class="slider-active owl-carousel">
+                                @foreach($mainCats as $mainCat)
+                                @if($mainCat->status == 1)
                                 <!-- Begin Single Slide Area -->
-                                <div class="single-slide align-center-left animation-style-01 bg-1">
+                                <!-- min-height: 475px; -->
+                                <div class="single-slide align-center-left animation-style-01 bg">
                                     <div class="slider-progress"></div>
-                                    <div class="slider-content">
-                                        <h5>Sale Offer <span>-20% Off</span> This Week</h5>
-                                        <h2>Chamcham Galaxy S9 | S9+</h2>
-                                        <h3>Starting at <span>$1209.00</span></h3>
-                                        <div class="default-btn slide-btn">
-                                            <a class="links" href="shop-left-sidebar.html">Shopping Now</a>
+                                    <div class="slider-content w-100 p-0 d-lg-flex d-md-flex d-sm-flex d-block justify-content-around align-items-center">
+                                        <div class="my-5 p-0">
+                                            <h2 class="my-3">{{ $mainCat->title }}</h2>
+                                            <div class="default-btn slide-btn">
+                                                <a class="links" href="{{ route( 'main.category.products', $mainCat->id ) }}">Shopping Now</a>
+                                            </div>
+                                        </div>
+                                        <div class="category-parent-image">
+                                            <img class="category-image" src="{{ $mainCat->getFirstMediaUrl('images') }}" alt="">
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Single Slide Area End Here -->
-                                <!-- Begin Single Slide Area -->
-                                <div class="single-slide align-center-left animation-style-02 bg-2">
-                                    <div class="slider-progress"></div>
-                                    <div class="slider-content">
-                                        <h5>Sale Offer <span>Black Friday</span> This Week</h5>
-                                        <h2>Work Desk Surface Studio 2018</h2>
-                                        <h3>Starting at <span>$824.00</span></h3>
-                                        <div class="default-btn slide-btn">
-                                            <a class="links" href="shop-left-sidebar.html">Shopping Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Single Slide Area End Here -->
-                                <!-- Begin Single Slide Area -->
-                                <div class="single-slide align-center-left animation-style-01 bg-3">
-                                    <div class="slider-progress"></div>
-                                    <div class="slider-content">
-                                        <h5>Sale Offer <span>-10% Off</span> This Week</h5>
-                                        <h2>Phantom 4 Pro+ Obsidian</h2>
-                                        <h3>Starting at <span>$1849.00</span></h3>
-                                        <div class="default-btn slide-btn">
-                                            <a class="links" href="shop-left-sidebar.html">Shopping Now</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Single Slide Area End Here -->
+                                @endif
+                                @endforeach
                             </div>
                         </div>
                     </div>
                     <!-- Slider Area End Here -->
-                    <!-- Begin Li Banner Area -->
-                    <div class="col-lg-4 col-md-4 text-center pt-sm-30 pt-xs-30">
-                        <div class="li-banner">
-                            <a href="#">
-                                <img src=" {{ asset( 'website/images/banner/1_1.jpg' ) }}" alt="">
-                            </a>
-                        </div>
-                        <div class="li-banner mt-15 mt-md-30 mt-xs-25 mb-xs-5">
-                            <a href="#">
-                                <img src=" {{ asset( 'website/images/banner/1_2.jpg' ) }}" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Li Banner Area End Here -->
+                    
                 </div>
             </div>
         </div>
@@ -112,7 +82,7 @@
                             <div class="product-active owl-carousel">
 
                             @foreach($latestProducts as $latestProduct)
-
+                            @if($latestProduct->status == 1)
                                 <div class="col-lg-12">
                                     <!-- single-product-wrap start -->
                                     <div class="single-product-wrap">
@@ -130,7 +100,7 @@
                                             <div class="product_desc_info">
                                                 <div class="product-review">
                                                     <h5 class="manufacturer">
-                                                        <a href="product-details.html">{{ $latestProduct->subCategory->title }}</a>
+                                                        <a href="{{ route('sub_category.products', $latestProduct->subCategory->id) }}">{{ $latestProduct->subCategory->title }}</a>
                                                     </h5>
                                                 </div>
                                                 <h4><a class="product_name" href="{{route('website.product.show', $latestProduct->id)}}">{{ $latestProduct->title }}</a></h4>
@@ -149,7 +119,7 @@
                                     </div>
                                     <!-- single-product-wrap end -->
                                 </div>
-
+                            @endif
                             @endforeach
 
                             </div>
@@ -164,27 +134,15 @@
 
 
         <!-- Begin Li's Static Banner Area -->
-        <div class="li-static-banner li-static-banner-4 text-center pt-20">
+        <div class="static-top-wrap">
             <div class="container">
                 <div class="row">
-                    <!-- Begin Single Banner Area -->
-                    <div class="col-lg-6">
-                        <div class="single-banner pb-sm-30 pb-xs-30">
-                            <a href="#">
-                                <img src=" {{ asset( 'website/images/banner/2_3.jpg' ) }}" alt="Li's Static Banner">
-                            </a>
+                    <div class="col-lg-12">
+                        <div class="static-top-content mt-sm-30">
+                            Shop smarter -
+                            <span>not hardert.</span>
                         </div>
                     </div>
-                    <!-- Single Banner Area End Here -->
-                    <!-- Begin Single Banner Area -->
-                    <div class="col-lg-6">
-                        <div class="single-banner">
-                            <a href="#">
-                                <img src=" {{ asset( 'website/images/banner/2_4.jpg' ) }}" alt="Li's Static Banner">
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Single Banner Area End Here -->
                 </div>
             </div>
         </div>
@@ -194,7 +152,7 @@
         
         
         @foreach($subCats as $subCat)
-        
+        @if($subCat->status == 1)
             <section class="product-area li-laptop-product pt-60 pb-45 pt-sm-50 pt-xs-60">
                 <div class="container">
                     <div class="row">
@@ -216,6 +174,7 @@
                                     
                                     
                                     @foreach($subCat->products as $product)
+                                    @if($product->status == 1)
                                     <div class="col-lg-12">
                                         <!-- single-product-wrap start -->
                                         <div class="single-product-wrap">
@@ -232,7 +191,7 @@
                                                 <div class="product_desc_info">
                                                     <div class="product-review">
                                                         <h5 class="manufacturer">
-                                                            <a href="product-details.html">{{$subCat->title}}</a>
+                                                            <a href="{{ route('sub_category.products', $subCat->id) }}">{{$subCat->title}}</a>
                                                         </h5>
                                                         
                                                     </div>
@@ -259,6 +218,7 @@
                                         </div>
                                         <!-- single-product-wrap end -->
                                     </div>
+                                    @endif
                                     @endforeach
                                 
                                 
@@ -276,6 +236,7 @@
                 </div>
             </section>
             
+        @endif
         @endforeach
         
         

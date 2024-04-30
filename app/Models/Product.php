@@ -30,4 +30,9 @@ class Product extends Model implements HasMedia
         return $this->hasMany(OrderList::class);
     }
 
+    public function colors()
+    {
+        return $this->belongsToMany(Color::class, 'product_colors');
+    }
+
 }

@@ -65,13 +65,13 @@
                 <legend class="col-form-label col-sm-2 pt-0">status</legend>
                 <div class="col-sm-10">
                     <div class="form-check">
-                        <input required class="form-check-input" type="radio" name="status" id="gridRadios2" value="1" {{ $subCat->status === '1'? 'checked' : '' }}>
+                        <input required class="form-check-input" type="radio" name="status" id="gridRadios2" value="1" {{ $product->status === '1'? 'checked' : '' }}>
                         <label class="form-check-lael" for="gridRadios2">
                             Active
                         </label>
                     </div>
                     <div class="form-check">
-                        <input required class="form-check-input" type="radio" name="status" id="gridRadios1" value="0" {{ $subCat->status === '0'? 'checked' : '' }}>
+                        <input required class="form-check-input" type="radio" name="status" id="gridRadios1" value="0" {{ $product->status === '0'? 'checked' : '' }}>
                         <label class="form-check-label" for="gridRadios1">
                             Disable
                         </label>

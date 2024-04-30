@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Color;
 use App\Models\Product;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
@@ -17,9 +18,10 @@ class ProductController extends Controller
     public function index()
     {
         $subCats = SubCategory::where('status', 1)->get();
-        $products = Product::with('subCategory')->get();
+        $products = Product::with('subCategory')->with('colors')->get();
+        $colors = Color::where('status', 1)->get();
         // return $products;
-        return view('admin.pages.products.index', compact('subCats', 'products'));
+        return view('admin.pages.products.index', compact('subCats', 'products', 'colors'));
     }
 
     /**
@@ -40,6 +42,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request;
         $request->validate([
             'title' => 'required|min:2',
             'description' => 'required|min:10',
@@ -50,6 +53,7 @@ class ProductController extends Controller
             'status' => 'required',
         ]);
         $product = Product::create($request->except('image'));
+        $product->colors()->attach($request->color_id);
         if ($request->has('image')) {
             $product->addMediaFromRequest('image')->toMediaCollection('images');
         }

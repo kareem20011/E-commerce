@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand bg-dark navbar-dark sticky-top px-4 py-0">
-    <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+    <a href="{{ route('admin.dashboard') }}" class="navbar-brand d-flex d-lg-none me-4">
         <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
     </a>
     <a href="#" class="sidebar-toggler flex-shrink-0">
@@ -9,7 +9,7 @@
 
 
         <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+            <a href="{{ route('admin.dashboard') }}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                 @if(count(auth('admin')->user()->getMedia('images')) > 0)
                     <img class="rounded-circle me-lg-2" src="{{ auth('admin')->user()->getFirstMedia('images')->getUrl() }}" alt="" style="width: 40px; height: 40px;">
                     @else

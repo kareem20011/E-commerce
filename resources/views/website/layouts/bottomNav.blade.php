@@ -8,20 +8,23 @@
                     <nav>
                         <ul>
 
-                            <li><a href="#">Home</a></li>
+                            <li><a href="/">Home</a></li>
 
                             @foreach($mainCats as $mainCat)
+                                @if($mainCat->status == 1)
 
-                                <li class="dropdown-holder"><a href="#">{{$mainCat->title}}</a>
+                                <li class="dropdown-holder"><a href="{{ route( 'main.category.products', $mainCat->id ) }}">{{$mainCat->title}}</a>
                                     <ul class="hb-dropdown">
                                         @foreach($mainCat->SubCategory as $subCat)
-                                            <li><a href="#">{{$subCat->title}}</a></li>
+                                            @if($subCat->status == 1)
+                                                <li><a href="{{ route( 'sub_category.products', $subCat->id ) }}">{{$subCat->title}}</a></li>
+                                            @endif    
                                         @endforeach
                                     </ul>
                                 </li>
 
+                                @endif
                             @endforeach
-
 
                         </ul>
                     </nav>

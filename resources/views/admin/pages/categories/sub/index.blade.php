@@ -4,7 +4,7 @@
 
 <div class="container-fluid pt-4 px-4">
     <div class="bg-secondary rounded p-4">
-        <h6 class="mb-4">Sub Categories</h6>
+        <h6 class="mb-4">Sub Category</h6>
         <form method="post" action="{{ route('subCategories.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
@@ -60,9 +60,9 @@
 
 
 
-<div class="container-fluid pt-4 px-4">
+<div class="container-fluid py-4 px-4">
     <div class="bg-secondary rounded h-100 p-4">
-        <h6 class="mb-4">Users Data</h6>
+        <h6 class="mb-4">Sub Categories Data</h6>
         <div class="table-responsive">
             <table class="table">
                 <thead>

@@ -5,20 +5,28 @@
 <div class="content-wraper">
     <div class="container">
         <div class="row single-product-area">
+            
+            
             <div class="col-lg-5 col-md-6">
                 <!-- Product Details Left -->
                 <div class="product-details-left">
                     <div class="product-details-images slider-navigation-1">
                         <div class="lg-image">
+                            @if($product->hasMedia('images'))
                             <a class="popup-img venobox vbox-item" href="{{$product->getFirstMedia('images')->getUrl()}}" data-gall="myGallery">
                                 <img src="{{$product->getFirstMedia('images')->getUrl()}}" alt="product image">
                             </a>
+                            @else
+                            <h1>No image</h1>
+                            @endif
                         </div>
                     </div>
                     
                 </div>
                 <!--// Product Details Left -->
             </div>
+            
+            
 
             <div class="col-lg-7 col-md-6">
                 <div class="product-details-view-content pt-60">
@@ -36,10 +44,11 @@
                         <div class="product-variants">
                             <div class="produt-variants-size">
                                 <label>colos</label>
-                                <select class="nice-select">
-                                    <option value="1" title="S" selected="selected">Color Title</option>
-                                    <option value="2" title="M">Color Title</option>
-                                    <option value="3" title="L">Color Title</option>
+                                <select class="form-select w-lg-25 w-50" multiple name="color_id[]">
+                                    <option selected disabled>Color Title</option>
+                                    @foreach($colors as $color)
+                                    <option value="{{ $color->id }}">{{ $color->title }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

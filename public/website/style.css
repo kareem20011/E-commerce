@@ -450,64 +450,21 @@ textarea:focus {
 /*  1.8 Background Variation Set
 /*----------------------------------------*/
 /*Home One | Slider Background Image*/
-.bg-1, .bg-2, .bg-3 {
-	background-image: url(images/slider/1.jpg);
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
+.bg {
 	min-height: 475px;
 	width: 100%;
+	background-color: #fff;
 }
-.bg-2 {
-	background-image: url(images/slider/2.jpg);
+
+.category-parent-image{
+	width: 400px;
+	height: 100%;
+	border-radius: 0.5rem;
+	overflow: hidden;
 }
-.bg-3 {
-	background-image: url(images/slider/3.jpg);
-}
-/*Home Two | Slider Background Image*/
-.bg-4, .bg-5, .bg-6 {
-	background-image: url(images/slider/4.jpg);
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-	min-height: 475px;
+.category-parent-image .category-image{
 	width: 100%;
-}
-.bg-5 {
-	background-image: url(images/slider/5.jpg);
-}
-.bg-6 {
-	background-image: url(images/slider/6.jpg);
-}
-/*Home Three | Slider Background Image*/
-.bg-7, .bg-8, .bg-9 {
-	background-image: url(images/slider/7.jpg);
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-	min-height: 425px;
-	width: 100%;
-}
-.bg-8 {
-	background-image: url(images/slider/8.jpg);
-}
-.bg-9 {
-	background-image: url(images/slider/9.jpg);
-}
-/*Home Four | Slider Background Image*/
-.bg-10, .bg-11, .bg-12 {
-	background-image: url(images/slider/10.jpg);
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-	min-height: 770px;
-	width: 100%;
-}
-.bg-11 {
-	background-image: url(images/slider/11.jpg);
-}
-.bg-12 {
-	background-image: url(images/slider/12.jpg);
+	/* height: 100%; */
 }
 /*----------------------------------------*/
 /*  li's Background Variation Set 
@@ -1411,6 +1368,7 @@ textarea:focus {
 }
 .ht-setting-list > li {
 		transition: all 0.3s ease-in-out;
+		cursor: pointer;
 }
 .ht-setting-list > li.active {
 	background: #fed700;
@@ -1418,18 +1376,32 @@ textarea:focus {
 .ht-setting-list > li:hover {
 		background: #fed700;
 }
-.ht-setting-list > li > a {
+.ht-setting-list > li button {
+	background: unset;
+    outline: unset;
+    border: unset;
+    font-size: 12px;
+    margin-left: 0.2rem;
+    margin-top: unset;
+    cursor: pointer;
+}
+.ht-setting-list > li button:hover {
+	color: #fff !important;
+}
+.ht-setting-list > li a {
 	padding: 0 10px;
 	display: block;
 	font-size: 12px;
 	line-height: 22px;
 	margin-bottom: 10px;
+
+	color: #a5a5a5 !important;
 }
-.ht-setting-list > li:hover > a {
-	color: #ffffff;
+.ht-setting-list > li:hover a {
+	color: #ffffff !important;
 }
-.ht-setting-list > li.active > a {
-	color: #fff;
+.ht-setting-list > li.active a {
+	color: #fff !important;
 }
 .ht-setting-list > li > a > img {
 	padding-right: 5px;
@@ -1437,6 +1409,7 @@ textarea:focus {
 /*Header Middle*/
 .header-middle {
 	padding: 30px;
+	margin-bottom: 3rem;
 }
 .hm-searchbox {
 	display: flex;

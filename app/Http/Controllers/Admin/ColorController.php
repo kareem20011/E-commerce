@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Website;
+namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Color;
-use App\Models\MainCategory;
-use App\Models\Product;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ColorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $colors = Color::all();
+        return view("admin.pages.colors.index", compact('colors'));
     }
 
     /**
@@ -38,7 +37,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|min:3|unique:colors'
+        ]);
+        Color::create($request->except('_token'));
+        return redirect()->back()->with('status', 'color has been added');
     }
 
     /**
@@ -49,10 +52,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::find($id);
-        $mainCats = MainCategory::with('SubCategory')->get();
-        $colors = Color::all();
-        return view('website.pages.singleProduct.index', compact('product', 'mainCats', 'colors'));
+        //
     }
 
     /**
@@ -63,7 +63,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $color = Color::find($id);
+        return view("admin.pages.colors.edit", compact('color'));
     }
 
     /**
@@ -75,7 +76,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Color::where('id', $id)->update($request->except('_token', '_method'));
+        return redirect()->route('admin.colors.index')->with('status', 'color has been updated');
     }
 
     /**
@@ -86,6 +88,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $color = Color::find($id);
+        $color->delete();
+        return redirect()->back()->with('status', 'color has been deleted');
     }
 }

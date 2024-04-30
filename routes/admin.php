@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\admin\ColorController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MainCategoryController;
 use App\Http\Controllers\Admin\ProductController;
@@ -42,5 +43,6 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('mainCategories', MainCategoryController::class);
     Route::resource('subCategories', SubCategoryController::class);
     Route::resource('products', ProductController::class)->names('admin.product');
+    Route::resource('colors', ColorController::class)->names('admin.colors');
 
 });

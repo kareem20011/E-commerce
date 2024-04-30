@@ -4,7 +4,7 @@
 
 <div class="container-fluid pt-4 px-4">
     <div class="bg-secondary rounded p-4">
-        <h6 class="mb-4">Sub Categories</h6>
+        <h6 class="mb-4">User Create</h6>
         <form method="post" action="{{ route('admin.users.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
@@ -115,7 +115,7 @@
     </div>
 </div>
 
-<div class="col-12 container pt-5">
+<div class="col-12 container py-5">
     <div class="bg-secondary rounded h-100 p-4">
         <h6 class="mb-4">Users Data</h6>
         <div class="table-responsive">
